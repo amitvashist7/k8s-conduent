@@ -28,3 +28,50 @@
    26  docker run -it centos
    27  docker images 
    28  history > Docker_Install_history 
+   29  git add . 
+   30  git commit -m "Docker Containers"
+   31  git push origin master
+   32  ls
+   33  docker run -it ubuntu
+   34  docker ps 
+   35  docker ps -a
+   36  docker start f8788b0558cd        
+   37  docker ps 
+   38  docker attach f8788b0558cd        
+   39  docker ps 
+   40  docker attach f8788b0558cd        
+   41  docker ps 
+   42  ld
+   43  ls
+   44  mkdir docker
+   45  cd docker/
+   46  ls
+   47  mkdir apache
+   48  cd apache/
+   49  ls
+   50  vim Dockerfile
+   51  docker build -t myapache:v1 . 
+   52  docker images 
+   53  docker run -d --name=myapache-node1 myapache:v1
+   54  vim Dockerfile 
+   55  docker build -t myapache:v2 . 
+   56  vim Dockerfile 
+   57  docker run -d --name=myapache-node1 myapache:v2
+   58  docker run -d --name=myapache-node2 myapache:v2
+   59  docker ps 
+   60  docker ps -a
+   61  docker ps 
+   62  curl 
+   63  curl localhost 
+   64  ifconfig 
+   65  docker ps 
+   66  docker inspect myapache-node2
+   67  curl 172.17.0.2
+   68  git add . 
+   69  git commit -m "Docker Images"
+   70  git push 
+   71  git push origin master
+   72  cd ..
+   73  history 
+   74  ls
+   75  history > Docker_Install_history 
