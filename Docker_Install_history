@@ -75,3 +75,86 @@
    73  history 
    74  ls
    75  history > Docker_Install_history 
+   76  git add . 
+   77  git commit -m "Hist"
+   78  git push origin master
+   79  ls
+   80  docker ps 
+   81  vi 
+   82  curl 172.17.0.2
+   83  ls
+   84  cd docker/
+   85  ls
+   86  cd apache/
+   87  ls
+   88  vim Dockerfile 
+   89  docker build -t myapache:v3 . 
+   90  docker run -d --name=myapache-node3 myapache:v3
+   91  docker ps 
+   92  curl 172.17.0.3
+   93  ls
+   94  vim index.html
+   95  vim Dockerfile 
+   96  vim index.html 
+   97  docker build -t myapache:v4 . 
+   98  docker run -d --name=myapache-node4 myapache:v4
+   99  docker ps 
+  100  curl 172.17.0.3
+  101  curl 172.17.0.2
+  102  curl 172.17.0.4
+  103  vim index.html 
+  104  docker build -t myapache:v5 . 
+  105  docker run -d --name=myapache-node5 myapache:v5
+  106  docker ps 
+  107  curl 172.17.0.4
+  108  curl 172.17.0.5
+  109  history > ../../Docker_Install_history 
+  110  git add . 
+  111  git commit -m "Docker Images"
+  112  git push origin master
+  113  docker ps 
+  114  curl localhost
+  115  docker run -d -p 80:80 --name=myapache-node6 myapache:v5
+  116  docker ps 
+  117  curl localhost
+  118  ls
+  119  docker images 
+  120  docker tag amitvashist/cndt-myapache:v1 myapache:v3
+  121  docker tag myapache:v3 amitvashist/cndt-myapache:v1 
+  122  docker images
+  123  docker tag myapache:v4 amitvashist/cndt-myapache:v2 
+  124  docker tag myapache:v5 amitvashist/cndt-myapache:v3
+  125  docker images
+  126  docker tag amitvashist/cndt-myapache:v3 amitvashist7/cndt-myapache:v3
+  127  docker tag amitvashist/cndt-myapache:v2 amitvashist7/cndt-myapache:v2
+  128  docker tag amitvashist/cndt-myapache:v1 amitvashist7/cndt-myapache:v1
+  129  l
+  130  ld
+  131  ls
+  132  docker images 
+  133  docker push amitvashist7/cndt-myapache:v1
+  134  docker login 
+  135  docker push amitvashist7/cndt-myapache:v1
+  136  docker push amitvashist7/cndt-myapache:v2
+  137  docker push amitvashist7/cndt-myapache:v3
+  138  docker ps -a 
+  139  docker kill $(docker ps -aq) 
+  140  docker rm $(docker ps -aq) 
+  141  docker ps -a 
+  142  docker images 
+  143  docker images -q
+  144  docker rmi $(docker images -q)
+  145  docker images
+  146  docker rmi $(docker images -q)
+  147  docker rmi $(docker images -q) --force 
+  148  docker images
+  149  docker logout 
+  150  cd
+  151  docker images 
+  152  docker ps -a 
+  153  docker run -d -p 80:80 --name=node1 amitvashist7/cndt-myapache:v2
+  154  docker ps 
+  155  ls
+  156  cd myproject/
+  157  ls
+  158  history > Docker_Install_history 
