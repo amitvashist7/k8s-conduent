@@ -15,3 +15,16 @@
    13  git remote add origin https://github.com/amitvashist7/k8s-conduent.git
    14  git push origin master
    15  history > Docker_Install_history
+   16  git add . 
+   17  git commit -m "Docker Install History"
+   18  git push origin master
+   19  docker version 
+   20  ls
+   21  docker version 
+   22  docker run busybox echo "Hello World"
+   23  docker run busybox echo "Welcome to the world of Docker"
+   24  docker images
+   25  docker run -it ubuntu
+   26  docker run -it centos
+   27  docker images 
+   28  history > Docker_Install_history 
