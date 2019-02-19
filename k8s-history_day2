@@ -58,3 +58,24 @@
    58  cd k8s-conduent/
    59  ls
    60  history  > k8s-history_day1
+   61  git add . 
+   62  git commit -m "History"
+   63  git push origin master
+   64  kubectl get pods 
+   65  kubectl describe pod nodehelloworld 
+   66  kubectl get pods -o wide
+   67  ls
+   68  kubeadm token create --print-join-command
+   69  ls
+   70  history > k8s-history_day1 
+   71  ls
+   72  mv k8s-history_day1 k8s-history_day2
+   73  ls
+   74  kubectl get pods 
+   75  kubectl expose pod nodehelloworld --type=NodePort
+   76  kubectl get service 
+   77  kubectl get pod -o wide 
+   78  kubectl expose pod docker-get-started-6bd4f46468-c2wbh --type=NodePort
+   79  kubectl get svc 
+   80  kubectl get pod -o wide 
+   81  history > k8s-history_day2 
