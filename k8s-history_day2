@@ -79,3 +79,69 @@
    79  kubectl get svc 
    80  kubectl get pod -o wide 
    81  history > k8s-history_day2 
+    1  ls
+    2  git clone https://github.com/amitvashist7/kubernetes-project.git
+    3  cd kubernetes-project/setup/
+    4  ls
+    5  ip addr 
+    6  sed -i s/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
+    7  sed -i 's/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
+    8  vim install-kubernetes.sh 
+    9  ./install-kubernetes.sh 
+   10  mkdir -p $HOME/.kube
+   11  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   12  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   13  kubectl get nodes 
+   14  kubectl get pods 
+   15  kubectl get nodes 
+   16  kubectl get pods -n kube-system
+   17  kubectl get pods -n kube-system -o wide 
+   18  kubectl get pods -n kube-system
+   19  kubectl get pods -n kube-system -o wide 
+   20  kubectl get nodes 
+   21  kubectl token create --print-join-command
+   22  kubeadm token create --print-join-command
+   23  ls
+   24  kubectl get nodes 
+   25  kubeadm unjoin worker01   
+   26  ls
+   27  kubectl get nodes 
+   28  kubectl drain worker01   
+   29  kubectl drain worker01   --ignore-daemonsets
+   30  kubectl get pods 
+   31  kubectl get nodes 
+   32  kubectl uncordon worker01   
+   33  kubectl get nodes 
+   34  ls
+   35  git clone https://github.com/amitvashist7/k8s-conduent.git
+   36  ls
+   37  cp -rf kubernetes-project/replication-controller k8s-conduent/K8S/
+   38  cd k8s-conduent/
+   39  ls
+   40  cd K8S/
+   41  ls
+   42  cd replication-controller/
+   43  ls
+   44  cat helloworld-repl-controller.yml 
+   45  kubectl create -f helloworld-repl-controller.yml 
+   46  kubectl get pods 
+   47  kubectl get rc
+   48  kubectl delete pod helloworld-controller-qvpl7
+   49  kubectl get rc
+   50  kubectl get pods 
+   51  kubectl delete pod helloworld-controller-8wv6d helloworld-controller-stkff
+   52  kubectl get rc 
+   53  kubectl edit rc helloworld-controller
+   54  ls
+   55  vim helloworld-repl-controller.yml 
+   56  kubectl apply -f helloworld-repl-controller.yml 
+   57  kubectl get rc 
+   58  kubectl scale --replacas=2 rc helloworld-controller
+   59  kubectl scale --replicas=2 rc helloworld-controller
+   60  kubectl get pods 
+   61  ls
+   62  cd ..
+   63  ls
+   64  cd ..
+   65  ls
+   66  history >> k8s-history_day2 
