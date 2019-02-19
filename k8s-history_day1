@@ -1,0 +1,60 @@
+    1  git clone https://github.com/amitvashist7/k8s-conduent.git
+    2  ls
+    3  cd k8s-conduent/
+    4  ls
+    5  cd K8S/
+    6  ls
+    7  cd setup/
+    8  ls
+    9  vim install-kubernetes.sh 
+   10  ./install-kubernetes.sh 
+   11  mkdir -p $HOME/.kube
+   12  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   13  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   14  kubectl get nodes 
+   15  kubectl cluster-info
+   16  kubectl version
+   17  kubectl api-version
+   18  kubectl api-versions
+   19  history 
+   20  kubectl get pods 
+   21  ls
+   22  cd k8s-conduent/
+   23  ls
+   24  cd K8S/
+   25  ls
+   26  cd setup/
+   27  ls
+   28  vim install-kubernetes.sh 
+   29  vim install-node.sh 
+   30  ls
+   31  cd ..
+   32  ls
+   33  cd ..
+   34  ls
+   35  cd K8S/
+   36  ls
+   37  cd ..
+   38  ls
+   39  git pull
+   40  ls
+   41  cd K8S/
+   42  ls
+   43  cd first-app/
+   44  ls
+   45  cat helloworld.yml 
+   46  kubectl get pods 
+   47  kubectl create -f helloworld.yml 
+   48  cat helloworld.yml 
+   49  kubectl get pods 
+   50  kubectl run docker-get-started --image=amitvashist7/cndt-myapache:v3 --port=80
+   51  kubectl get pods 
+   52  cd /etc/kubernetes/manifests/
+   53  ls
+   54  cd ..
+   55  ls
+   56  cd 
+   57  ls
+   58  cd k8s-conduent/
+   59  ls
+   60  history  > k8s-history_day1
