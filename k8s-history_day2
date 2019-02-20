@@ -1,291 +1,139 @@
-    1  git clone https://github.com/amitvashist7/k8s-conduent.git
-    2  ls
-    3  cd k8s-conduent/
-    4  ls
-    5  cd K8S/
-    6  ls
-    7  cd setup/
-    8  ls
-    9  vim install-kubernetes.sh 
-   10  ./install-kubernetes.sh 
-   11  mkdir -p $HOME/.kube
-   12  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-   13  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-   14  kubectl get nodes 
-   15  kubectl cluster-info
-   16  kubectl version
-   17  kubectl api-version
-   18  kubectl api-versions
-   19  history 
-   20  kubectl get pods 
-   21  ls
-   22  cd k8s-conduent/
-   23  ls
-   24  cd K8S/
-   25  ls
-   26  cd setup/
-   27  ls
-   28  vim install-kubernetes.sh 
-   29  vim install-node.sh 
+    1  kubectl get pods 
+    2  kubectl delete pod busybox   
+    3  ls
+    4  cd k8s-conduent/
+    5  ls
+    6  cd K8S/
+    7  ls
+    8  cd first-app/
+    9  ls
+   10  cat helloworld.yml 
+   11  ls
+   12  kubectl create -f helloworld.yml 
+   13  kubectl get pods 
+   14  kubectl descibe pod nodehelloworld   
+   15  kubectl describe pod nodehelloworld   
+   16  l
+   17  ls
+   18  kubectl get pods 
+   19  kubectl expose pod nodehelloworld  --type=NodePort
+   20  kubectl get svc 
+   21  kubectl describe svc nodehelloworld   
+   22  kubectl get pod -o wide
+   23  kubectl delete svc nodehelloworld   
+   24  ls
+   25  cat helloworld-service.yml 
+   26  ls
+   27  cat helloworld-nodeport-service.yml 
+   28  kubectl create -f helloworld-nodeport-service.yml 
+   29  kubectl get svc 
    30  ls
-   31  cd ..
-   32  ls
-   33  cd ..
+   31  cat helloworld-nodeport-service.yml 
+   32  cat helloworld.yml 
+   33  kubectl get pods 
    34  ls
-   35  cd K8S/
-   36  ls
-   37  cd ..
-   38  ls
-   39  git pull
-   40  ls
-   41  cd K8S/
-   42  ls
-   43  cd first-app/
-   44  ls
-   45  cat helloworld.yml 
-   46  kubectl get pods 
-   47  kubectl create -f helloworld.yml 
-   48  cat helloworld.yml 
-   49  kubectl get pods 
-   50  kubectl run docker-get-started --image=amitvashist7/cndt-myapache:v3 --port=80
-   51  kubectl get pods 
-   52  cd /etc/kubernetes/manifests/
+   35  cp -rf helloworld.yml helloworld-v2.yaml
+   36  vim helloworld-v2.yaml 
+   37  kubectl create -f helloworld-v2.yaml 
+   38  kubectl get pods 
+   39  kubectl get svc 
+   40  kubectl describe svc helloworld-service
+   41  kubectl get pods 
+   42  kubectl edit pods nodehelloworld-v2
+   43  vi helloworld-v2.yaml 
+   44  kubectl apply -f helloworld-v2.yaml 
+   45  kubectl get pods 
+   46  kubectl delete pod nodehelloworld-v2
+   47  kubectl create -f helloworld-v2.yaml
+   48  kubectl describe svc helloworld-service
+   49  ls
+   50  cd ..
+   51  ls
+   52  cd ..
    53  ls
    54  cd ..
-   55  ls
-   56  cd 
-   57  ls
-   58  cd k8s-conduent/
-   59  ls
-   60  history  > k8s-history_day1
-   61  git add . 
-   62  git commit -m "History"
-   63  git push origin master
-   64  kubectl get pods 
-   65  kubectl describe pod nodehelloworld 
-   66  kubectl get pods -o wide
-   67  ls
-   68  kubeadm token create --print-join-command
-   69  ls
-   70  history > k8s-history_day1 
-   71  ls
-   72  mv k8s-history_day1 k8s-history_day2
+   55  rm -rf k8s-conduent/
+   56  git clone https://github.com/amitvashist7/k8s-conduent.git
+   57  cd k8s-conduent/K8S/first-app/
+   58  ls
+   59  rm -rf 03-Kubernetes\ Basics.pptx 
+   60  rm helloworld-service.yml 
+   61  cd ../../
+   62  ls
+   63  history > k8s-history_day3
+   64  git add . 
+   65  git commit -m "Service Demo"
+   66  git push origin master
+   67  kubectl get svc 
+   68  kubectl describe svc helloworld-service
+   69  kubectl get pods --selector=app=helloworld
+   70  kubectl get pods --selector=app=helloworld -o wide 
+   71  kubectl get pods 
+   72  kubectl delete pods --all
    73  ls
    74  kubectl get pods 
-   75  kubectl expose pod nodehelloworld --type=NodePort
-   76  kubectl get service 
-   77  kubectl get pod -o wide 
-   78  kubectl expose pod docker-get-started-6bd4f46468-c2wbh --type=NodePort
-   79  kubectl get svc 
-   80  kubectl get pod -o wide 
-   81  history > k8s-history_day2 
-    1  ls
-    2  git clone https://github.com/amitvashist7/kubernetes-project.git
-    3  cd kubernetes-project/setup/
-    4  ls
-    5  ip addr 
-    6  sed -i s/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
-    7  sed -i 's/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
-    8  vim install-kubernetes.sh 
-    9  ./install-kubernetes.sh 
-   10  mkdir -p $HOME/.kube
-   11  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-   12  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-   13  kubectl get nodes 
-   14  kubectl get pods 
-   15  kubectl get nodes 
-   16  kubectl get pods -n kube-system
-   17  kubectl get pods -n kube-system -o wide 
-   18  kubectl get pods -n kube-system
-   19  kubectl get pods -n kube-system -o wide 
-   20  kubectl get nodes 
-   21  kubectl token create --print-join-command
-   22  kubeadm token create --print-join-command
-   23  ls
-   24  kubectl get nodes 
-   25  kubeadm unjoin worker01   
-   26  ls
-   27  kubectl get nodes 
-   28  kubectl drain worker01   
-   29  kubectl drain worker01   --ignore-daemonsets
-   30  kubectl get pods 
-   31  kubectl get nodes 
-   32  kubectl uncordon worker01   
-   33  kubectl get nodes 
-   34  ls
-   35  git clone https://github.com/amitvashist7/k8s-conduent.git
-   36  ls
-   37  cp -rf kubernetes-project/replication-controller k8s-conduent/K8S/
-   38  cd k8s-conduent/
-   39  ls
-   40  cd K8S/
-   41  ls
-   42  cd replication-controller/
-   43  ls
-   44  cat helloworld-repl-controller.yml 
-   45  kubectl create -f helloworld-repl-controller.yml 
-   46  kubectl get pods 
-   47  kubectl get rc
-   48  kubectl delete pod helloworld-controller-qvpl7
-   49  kubectl get rc
-   50  kubectl get pods 
-   51  kubectl delete pod helloworld-controller-8wv6d helloworld-controller-stkff
-   52  kubectl get rc 
-   53  kubectl edit rc helloworld-controller
-   54  ls
-   55  vim helloworld-repl-controller.yml 
-   56  kubectl apply -f helloworld-repl-controller.yml 
-   57  kubectl get rc 
-   58  kubectl scale --replacas=2 rc helloworld-controller
-   59  kubectl scale --replicas=2 rc helloworld-controller
-   60  kubectl get pods 
-   61  ls
-   62  cd ..
-   63  ls
-   64  cd ..
-   65  ls
-   66  history >> k8s-history_day2 
-    1  ls
-    2  git clone https://github.com/amitvashist7/kubernetes-project.git
-    3  cd kubernetes-project/setup/
-    4  ls
-    5  ip addr 
-    6  sed -i s/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
-    7  sed -i 's/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
-    8  vim install-kubernetes.sh 
-    9  ./install-kubernetes.sh 
-   10  mkdir -p $HOME/.kube
-   11  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-   12  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-   13  kubectl get nodes 
-   14  kubectl get pods 
-   15  kubectl get nodes 
-   16  kubectl get pods -n kube-system
-   17  kubectl get pods -n kube-system -o wide 
-   18  watch -n .5 kubectl get pods
-   19  kubectl get rc 
-   20  kubectl get rc -o yaml 
-   21  kubectl get rc -o yaml  > rc.yaml
-   22  ls
-   23  cd k8s-conduent/
-   24  ls
-   25  git pull 
-   26  ls
-   27  cd K8S/
-   28  ls
-   29  cd deployment/
-   30  ls
-   31  cat helloworld.yml 
-   32  kubectl get pods 
-   33  kubectl get rc 
-   34  kubectl delete rc helloworld-controller 
-   35  kubectl get pods 
-   36  kubectl delete pod busybox   
-   37  kubectl get svc 
-   38  ls
-   39  kubectl get deployments 
-   40  kubectl create -f helloworld.yml 
-   41  kubectl get deployments 
-   42  kubectl get rc 
-   43  kubectl get rs
-   44  kubectl get pods 
-   45  kubectl delete pod helloworld-deployment-759fc84489-4dzwp helloworld-deployment-759fc84489-8fjx6
-   46  kubectl get pods 
-   47  ls
-   48  cd ../../
-   49  ls
-   50  history >> k8s-history_day2 
-    1  ls
-    2  git clone https://github.com/amitvashist7/kubernetes-project.git
-    3  cd kubernetes-project/setup/
-    4  ls
-    5  ip addr 
-    6  sed -i s/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
-    7  sed -i 's/172.31.0.100/10.142.0.36/g' install-kubernetes.sh
-    8  vim install-kubernetes.sh 
-    9  ./install-kubernetes.sh 
-   10  mkdir -p $HOME/.kube
-   11  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-   12  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-   13  kubectl get nodes 
-   14  kubectl get pods 
-   15  kubectl get nodes 
-   16  kubectl get pods -n kube-system
-   17  kubectl get pods -n kube-system -o wide 
-   18  watch -n .5 kubectl get pods
-   19  kubectl get rc 
-   20  kubectl get rc -o yaml 
-   21  kubectl get rc -o yaml  > rc.yaml
-   22  ls
-   23  cd k8s-conduent/
-   24  ls
-   25  git pull 
-   26  ls
-   27  cd K8S/
-   28  ls
-   29  cd deployment/
-   30  ls
-   31  cat helloworld.yml 
-   32  kubectl get pods 
-   33  kubectl get rc 
-   34  kubectl delete rc helloworld-controller 
-   35  kubectl get pods 
-   36  kubectl delete pod busybox   
-   37  kubectl get svc 
-   38  ls
-   39  kubectl get deployments 
-   40  kubectl create -f helloworld.yml 
-   41  kubectl get deployments 
-   42  kubectl get rc 
-   43  kubectl get rs
-   44  kubectl get pods 
-   45  kubectl delete pod helloworld-deployment-759fc84489-4dzwp helloworld-deployment-759fc84489-8fjx6
-   46  kubectl get pods 
-   47  ls
-   48  cd ../../
-   49  ls
-   50  history >> k8s-history_day2 
-   51  git add . 
-   52  git commit -m "Deployment History -1"
-   53  git push origin master
-   54  ls
-   55  kubectl get pods 
-   56  kubectl get deployments
-   57  kubectl expose deployment helloworld-deployment --type=NodePort
-   58  kubectl get svc 
-   59  kubectl get pods -o wide 
-   60  kubectl rollout status dc
-   61  kubectl get deployments
-   62  kubectl rollout status deployment helloworld-deployment
-   63  kubectl get rs
-   64  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2
-   65  kubectl rollout status deployment helloworld-deployment
-   66  kubectl get rs
-   67  kubectl edit deployments helloworld-deployment
-   68  kubectl rollout status deployment helloworld-deployment
-   69  kubectl get rs
-   70  kubectl get pods 
-   71  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3
-   72  kubectl rollout status deployment helloworld-deployment
-   73  kubectl get rs
-   74  kubectl get pods 
-   75  kubectl describe rs helloworld-deployment-6c5f9ccb4b
-   76  kubectl get rs
-   77  kubectl describe rs helloworld-deployment-5d9488c877
-   78  kubectl rollout undo deployment helloworld-deployment
-   79  kubectl rollout status deployment helloworld-deployment
-   80  kubectl rollout undo deployment helloworld-deployment
-   81  kubectl rollout status deployment helloworld-deployment
-   82  kubectl get rs
-   83  kubectl rollout history deployment helloworld-deployment
-   84  kubectl rollout history deployment helloworld-deployment --revison=1
-   85  kubectl rollout history deployment/helloworld-deployment --revision=1
-   86  kubectl rollout history deployment/helloworld-deployment --revision=4
-   87  kubectl rollout history deployment/helloworld-deployment --revision=5
-   88  kubectl rollout undo deployment helloworld-deployment --to-revision=1
-   89  kubectl rollout status deployment helloworld-deployment
+   75  kubectl get svc 
+   76  kubectl delete svc  helloworld-service
+   77  ls
+   78  cd K8S/first-app/
+   79  ls
+   80  cd ../
+   81  ls
+   82  cd deployment/
+   83  ;s
+   84  ls
+   85  kubectl get nodes 
+   86  kubectl get nodes --show-labels
+   87  ls
+   88  vim helloworld-nodeselector.yml 
+   89  kubectl create -f helloworld-nodeselector.yml
    90  kubectl get pods 
-   91  kubectl rollout history deployment helloworld-deployment
-   92  kubectl rollout history deployment helloworld-deployment --revision=6
-   93  kubectl rollout history deployment/helloworld-deployment --revision=6
-   94  history >> k8s-history_day2 
+   91  ls
+   92  vim helloworld-nodeselector.yml 
+   93  kubectl create -f helloworld-nodeselector.yml 
+   94  kubectl get pods 
+   95  vim helloworld-nodeselector.yml
+   96  kubectl create -f helloworld-nodeselector.yml 
+   97  kubectl get pods 
+   98  kubectl get pods -o wide 
+   99  ls
+  100  kubectl get nodes 
+  101  kubectl label nodes worker01  hardware=virtual
+  102  kubectl label nodes worker02  hardware=virtual
+  103  kubectl get pods -o wide 
+  104  kubectl describe pod helloworld-deployment-2-754748c59b-fgptm
+  105  kubectl label nodes worker01  env=prod
+  106  kubectl label nodes worker02  env=uat
+  107  kubectl get pods -o wide 
+  108  kubectl describe pod helloworld-deployment-2-754748c59b-fgptm
+  109  kubectl get pods -o wide 
+  110  kubectl label
+  111  kubectl label --help
+  112  ls
+  113  kubectl delete deployments --all
+  114  ls
+  115  kubectl get nodes --show-labels
+  116  kubectl label node worker01 env - 
+  117  kubectl label node worker01 env- 
+  118  kubectl get nodes --show-labels
+  119  kubectl label node worker02 env- 
+  120  kubectl label node worker02 hardware- 
+  121  kubectl label node worker01 hardware- 
+  122  kubectl get nodes --show-labels
+  123  cd ..
+  124  ls
+  125  cd ..
+  126  ls
+  127  cd K8S/
+  128  ls
+  129  cd deployment/
+  130  ls
+  131  vim helloworld-nodeselector.yml 
+  132  ls
+  133  rm -rf 1
+  134  vim helloworld-nodeselector-1.yml 
+  135  cd ..
+  136  ls
+  137  cd ..
+  138  ls
+  139  history  > k8s-history_day2 
