@@ -168,3 +168,177 @@
   122  cd ../../
   123  ls
   124  history >> k8s-history_day4 
+   30  history 
+   31  ls
+   32  git add . 
+   33  git commit -m "CronJB"
+   34  git push origin master
+   35  kubectl get jobs
+   36  kubectl get cronjob
+   37  kubectl delete cronjob hello     
+   38  kubectl get cronjob
+   39  kubectl get jobs
+   40  kubectl get pods 
+   41  kubectl get pods
+   42  kubectl get pods -n kube-system
+   43  kubectl top
+   44  kubectl top node        
+   45  kubectl top pod
+   46  kubectl top pod -n kube-system
+   47  ls
+   48  cd K8S/
+   49  ls
+   50  cd gcloud/
+   51  ls
+   52  cd autoscaling/
+   53  ls
+   54  vim hpa-example.yml 
+   55  git add . 
+   56  ls
+   57  kubectl create -f hpa-example.yml 
+   58  kubectl get deployments
+   59  kubectl get pods 
+   60  kubectl get hpa
+   61  kubectl get svc 
+   62  kubectl get hpa
+   63  kubectl get pod
+   64  curl http://35.194.57.92:31001/
+   65  wget http://35.194.57.92:31001/
+   66  while true; do wget -q -O http://35.194.57.92:31001/; done
+   67  while true; do wget -q -O- http://35.194.57.92:31001/; done
+   68  kubectl get pod
+   69  kubectl get hpa
+   70  ls
+   71  kubectl get hpa
+   72  kubectl get hpa 
+   73  kubectl delete hpa  hpa-example-autoscaler
+   74  ls
+   75  kubectl delete -f hpa-example.yml 
+   76  ls
+   77  rm -rf index.html 
+   78  gls
+   79  cd ..
+   80  ls
+   81  cd ..
+   82  ls
+   83  cd ..
+   84  ls
+   85  history >> k8s-history_day4
+   86  git add . 
+   87  git commit -m "HPA Demo"
+   88  git push origin master
+   89  ls
+   90  cd K8S/gcloud/
+   91  ls
+   92  cat statefullset/cassandra.yaml 
+   93  kubectl get pv 
+   94  kubectl get pvc
+   95  ls
+   96  kubectl create -f statefullset/cassandra.yaml 
+   97  watch -n 1 kubectl get pods 
+   98  kubectl get pv 
+   99  kubectl get pvc
+  100  ls
+  101  kubectl get pods 
+  102  kubectl get rs
+  103  kubectl get statefullset
+  104  kubectl get statefulset
+  105  kubectl edit statefulset cassandra   
+  106  watch -n 1 kubectl get pods 
+  107  kubectl edit statefulset cassandra   
+  108  watch -n 1 kubectl get pods 
+  109  vim statefullset/cassandra.yaml 
+  110  ls
+  111  kubectl get pods 
+  112* kubectl exec -it cassandra-0 -- bash-
+  113  kubectl get pods 
+  114  kubectl get pods -o wide 
+  115  kubectl delete pod cassandra-1
+  116  watch -n 1 kubectl get pods -o wide 
+  117  ls
+  118  kubectl dlete -f statefullset/cassandra.yaml 
+  119  kubectl delete -f statefullset/cassandra.yaml 
+  120  kubectl get pv 
+  121  ls
+  122  cd ../../
+  123  ls
+  124  history >> k8s-history_day4 
+  125  git add . 
+  126  git commit -m "StatefullSet History"
+  127  git push origin master
+  128  kubectl get pods -n kube-system
+  129  kubectl get depoyments -n kube-system 
+  130  kubectl get deployments -n kube-system 
+  131  kubectl get deamonset -n kube-system 
+  132  kubectl get daemonset -n kube-system 
+  133  kubectl describe daemonset fluentd-gcp-v3.2.0 -n kube-system 
+  134  ls
+  135  cd K8S/
+  136  ls
+  137  cd gcloud/
+  138  ls
+  139  cd resourcequotas/
+  140  ls
+  141  cat resourcequota.yml 
+  142  vim resourcequota.yml
+  143  ls
+  144  kubectl get ns 
+  145  kubectl create -f resourcequota.yml
+  146  kubectl get ns 
+  147  kubectl get resourcequota
+  148  kubectl get resourcequota -n myspace
+  149  ls
+  150  cat helloworld-with-quotas.yml 
+  151  kubectl create -f helloworld-with-quotas.yml 
+  152  kubectl get pod
+  153  kubectl get pod -n myspace
+  154  kubectl get deployments -n myspace
+  155  kubectl describe deployments helloworld-deployment -n myspace
+  156  kubectl get deployments -n myspace
+  157  kubectl describe deployments helloworld-deployment -n myspace
+  158  kubectl get rs -n myspace
+  159  kubectl describe rs helloworld-deployment-7bc6b64b45 -n myspace
+  160  ls
+  161  cat helloworld-no-quotas.yml 
+  162  kubectl apply -f helloworld-no-quotas.yml 
+  163  kubectl get pod -n myspace
+  164  kubectl get deployments -n myspace
+  165  ls
+  166  kubectl delete deployments helloworld-deploymen -n myspace
+  167  kubectl delete deployments helloworld-deployment -n myspace
+  168  kubectl get pod -n myspace
+  169  kubectl apply -f helloworld-no-quotas.yml 
+  170  kubectl get pod -n myspace
+  171  ls
+  172  cat helloworld-no-quotas.yml 
+  173  kubectl create -f helloworld-no-quotas.yml 
+  174  kubectl get pod -n myspace
+  175  kubectl get deployments -n myspace
+  176  ls
+  177  kubectl delete -f helloworld-no-quotas.yml 
+  178  cat defaults.yml 
+  179  kubectl create -f defaults.yml 
+  180  kubectl create  -f helloworld-no-quotas.yml 
+  181  kubectl get pod -n myspace
+  182  ls
+  183  cat defaults.yml 
+  184  ls
+  185  mv defaults.yml defaults-limits.yml 
+  186  ls
+  187  git add . 
+  188  git commit -m "NameSpace & Resource Quotas"
+  189  git push origin master
+  190  ls
+  191  kubectl delete -f defaults-limits.yml 
+  192  kubectl delete -f helloworld-no-quotas.yml 
+  193  kubectl delete -f helloworld-with-quotas.yml 
+  194  kubectl delete -f resourcequota.yml 
+  195  kubectl get ns 
+  196  ls
+  197  cd ..
+  198  ls
+  199  cd ..
+  200  ls
+  201  cd ..
+  202  ls
+  203  history >> k8s-history_day4
