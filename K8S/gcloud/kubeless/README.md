@@ -6,6 +6,9 @@ sudo mv bundles/kubeless_linux-amd64/kubeless /usr/local/bin
 rm -r bundles/
 ```
 
+# Role Binding
+kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin  --user=$(gcloud config get-value core/account)
+
 # Deploy kubeless
 kubectl create ns kubeless
 
