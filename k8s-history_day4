@@ -588,3 +588,330 @@
   273  cd ../
   274  ls
   275  history >> k8s-history_day4
+   30  history 
+   31  ls
+   32  git add . 
+   33  git commit -m "CronJB"
+   34  git push origin master
+   35  kubectl get jobs
+   36  kubectl get cronjob
+   37  kubectl delete cronjob hello     
+   38  kubectl get cronjob
+   39  kubectl get jobs
+   40  kubectl get pods 
+   41  kubectl get pods
+   42  kubectl get pods -n kube-system
+   43  kubectl top
+   44  kubectl top node        
+   45  kubectl top pod
+   46  kubectl top pod -n kube-system
+   47  ls
+   48  cd K8S/
+   49  ls
+   50  cd gcloud/
+   51  ls
+   52  cd autoscaling/
+   53  ls
+   54  vim hpa-example.yml 
+   55  git add . 
+   56  ls
+   57  kubectl create -f hpa-example.yml 
+   58  kubectl get deployments
+   59  kubectl get pods 
+   60  kubectl get hpa
+   61  kubectl get svc 
+   62  kubectl get hpa
+   63  kubectl get pod
+   64  curl http://35.194.57.92:31001/
+   65  wget http://35.194.57.92:31001/
+   66  while true; do wget -q -O http://35.194.57.92:31001/; done
+   67  while true; do wget -q -O- http://35.194.57.92:31001/; done
+   68  kubectl get pod
+   69  kubectl get hpa
+   70  ls
+   71  kubectl get hpa
+   72  kubectl get hpa 
+   73  kubectl delete hpa  hpa-example-autoscaler
+   74  ls
+   75  kubectl delete -f hpa-example.yml 
+   76  ls
+   77  rm -rf index.html 
+   78  gls
+   79  cd ..
+   80  ls
+   81  cd ..
+   82  ls
+   83  cd ..
+   84  ls
+   85  history >> k8s-history_day4
+   86  git add . 
+   87  git commit -m "HPA Demo"
+   88  git push origin master
+   89  ls
+   90  cd K8S/gcloud/
+   91  ls
+   92  cat statefullset/cassandra.yaml 
+   93  kubectl get pv 
+   94  kubectl get pvc
+   95  ls
+   96  kubectl create -f statefullset/cassandra.yaml 
+   97  watch -n 1 kubectl get pods 
+   98  kubectl get pv 
+   99  kubectl get pvc
+  100  ls
+  101  kubectl get pods 
+  102  kubectl get rs
+  103  kubectl get statefullset
+  104  kubectl get statefulset
+  105  kubectl edit statefulset cassandra   
+  106  watch -n 1 kubectl get pods 
+  107  kubectl edit statefulset cassandra   
+  108  watch -n 1 kubectl get pods 
+  109  vim statefullset/cassandra.yaml 
+  110  ls
+  111  kubectl get pods 
+  112* kubectl exec -it cassandra-0 -- bash-
+  113  kubectl get pods 
+  114  kubectl get pods -o wide 
+  115  kubectl delete pod cassandra-1
+  116  watch -n 1 kubectl get pods -o wide 
+  117  ls
+  118  kubectl dlete -f statefullset/cassandra.yaml 
+  119  kubectl delete -f statefullset/cassandra.yaml 
+  120  kubectl get pv 
+  121  ls
+  122  cd ../../
+  123  ls
+  124  history >> k8s-history_day4 
+  125  git add . 
+  126  git commit -m "StatefullSet History"
+  127  git push origin master
+  128  kubectl get pods -n kube-system
+  129  kubectl get depoyments -n kube-system 
+  130  kubectl get deployments -n kube-system 
+  131  kubectl get deamonset -n kube-system 
+  132  kubectl get daemonset -n kube-system 
+  133  kubectl describe daemonset fluentd-gcp-v3.2.0 -n kube-system 
+  134  ls
+  135  cd K8S/
+  136  ls
+  137  cd gcloud/
+  138  ls
+  139  cd resourcequotas/
+  140  ls
+  141  cat resourcequota.yml 
+  142  vim resourcequota.yml
+  143  ls
+  144  kubectl get ns 
+  145  kubectl create -f resourcequota.yml
+  146  kubectl get ns 
+  147  kubectl get resourcequota
+  148  kubectl get resourcequota -n myspace
+  149  ls
+  150  cat helloworld-with-quotas.yml 
+  151  kubectl create -f helloworld-with-quotas.yml 
+  152  kubectl get pod
+  153  kubectl get pod -n myspace
+  154  kubectl get deployments -n myspace
+  155  kubectl describe deployments helloworld-deployment -n myspace
+  156  kubectl get deployments -n myspace
+  157  kubectl describe deployments helloworld-deployment -n myspace
+  158  kubectl get rs -n myspace
+  159  kubectl describe rs helloworld-deployment-7bc6b64b45 -n myspace
+  160  ls
+  161  cat helloworld-no-quotas.yml 
+  162  kubectl apply -f helloworld-no-quotas.yml 
+  163  kubectl get pod -n myspace
+  164  kubectl get deployments -n myspace
+  165  ls
+  166  kubectl delete deployments helloworld-deploymen -n myspace
+  167  kubectl delete deployments helloworld-deployment -n myspace
+  168  kubectl get pod -n myspace
+  169  kubectl apply -f helloworld-no-quotas.yml 
+  170  kubectl get pod -n myspace
+  171  ls
+  172  cat helloworld-no-quotas.yml 
+  173  kubectl create -f helloworld-no-quotas.yml 
+  174  kubectl get pod -n myspace
+  175  kubectl get deployments -n myspace
+  176  ls
+  177  kubectl delete -f helloworld-no-quotas.yml 
+  178  cat defaults.yml 
+  179  kubectl create -f defaults.yml 
+  180  kubectl create  -f helloworld-no-quotas.yml 
+  181  kubectl get pod -n myspace
+  182  ls
+  183  cat defaults.yml 
+  184  ls
+  185  mv defaults.yml defaults-limits.yml 
+  186  ls
+  187  git add . 
+  188  git commit -m "NameSpace & Resource Quotas"
+  189  git push origin master
+  190  ls
+  191  kubectl delete -f defaults-limits.yml 
+  192  kubectl delete -f helloworld-no-quotas.yml 
+  193  kubectl delete -f helloworld-with-quotas.yml 
+  194  kubectl delete -f resourcequota.yml 
+  195  kubectl get ns 
+  196  ls
+  197  cd ..
+  198  ls
+  199  cd ..
+  200  ls
+  201  cd ..
+  202  ls
+  203  history >> k8s-history_day4
+  204  git add . 
+  205  git commit -m "hisory"
+  206  git push origin master
+  207  ls
+  208  cd K8S/
+  209  ls
+  210  cd gcloud/
+  211  ls
+  212  git pull
+  213  ls
+  214  cd helm/
+  215  ls
+  216  cat README.md 
+  217  wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+  218  tar -xzvf helm-v2.11.0-linux-amd64.tar.gz
+  219  sudo mv linux-amd64/helm /usr/local/bin/helm
+  220  ls
+  221  kubectl create -f helm-rbac.yaml
+  222  helm init --service-account tiller
+  223  ls
+  224  rm -rf helm-v2.11.0-linux-amd64.tar.gz linux-amd64/
+  225  ls
+  226  helm 
+  227  helm search 
+  228  helm search redis
+  229  helm install stable/redis
+  230  kubectl get pods 
+  231  kubectl get svc 
+  232  kubectl get pv
+  233  export REDIS_PASSWORD=$(kubectl get secret --namespace default austere-labradoodle-redis -o jsonpath="{.data.redis-password}" | base64 --decode)
+  234  kubectl run --namespace default austere-labradoodle-redis-client --rm --tty -i --restart='Never'     --env REDIS_PASSWORD=$REDIS_PASSWORD    --image docker.io/bitnami/redis:4.0.12 -- bash
+  235  helm list 
+  236  helm install stable/redis -n myredis
+  237  helm list 
+  238  kubectl get pods 
+  239  helm delete myredis   austere-labradoodle
+  240  ls
+  241  helm create myhelmchart
+  242  ls
+  243  cd myhelmchart/
+  244  ls
+  245  cat Chart.yaml 
+  246  ls
+  247  cat values.yaml 
+  248  ls
+  249  cd charts/
+  250  ls
+  251  cd ..
+  252  ls
+  253  cd templates/
+  254  ls
+  255  cd ..
+  256  ls
+  257  cd ..
+  258  helm install myhelmchart/
+  259  kubectl get pods 
+  260  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=myhelmchart,app.kubernetes.io/instance=garish-hedgehog" -o jsonpath="{.items[0].metadata.name}")
+  261  kubectl port-forward $POD_NAME 8080:80
+  262  bg
+  263  curl http://127.0.0.1:8080 
+  264  kubectl get svc 
+  265  kubectl edit svc garish-hedgehog-myhelmchart
+  266  kubectl get svc 
+  267  helm list 
+  268  helm delete garish-hedgehog
+  269  kubectl get svc 
+  270  ls
+  271  cd ../../
+  272  ls
+  273  cd ../
+  274  ls
+  275  history >> k8s-history_day4
+  276  git add . 
+  277  git commit -m "Helm"
+  278  git push origin master
+  279  ls
+  280  cd K8S/
+  281  ls
+  282  cd gcloud/
+  283  ls
+  284  cd helm/
+  285  ls
+  286  cd demo-chart/
+  287  ls
+  288  cat requirements.yaml 
+  289  cd ../../
+  290  ls
+  291  cd helm/
+  292  ls
+  293  cd demo-chart/
+  294  ls
+  295  cd ..
+  296  ls
+  297  cd demo-chart/
+  298  ls
+  299  cat requirements.
+  300  cat requirements.yaml 
+  301  cat values.yaml 
+  302  ls
+  303  cd ..
+  304  ls
+  305  cd demo-chart/
+  306  helm dependency update 
+  307  ls
+  308  cd charts/
+  309  ls
+  310  cd ..
+  311  ls
+  312  cd ..
+  313  ls
+  314  cd demo-chart/
+  315  ls
+  316  rm -rf charts
+  317  ls
+  318  cat requirements.yaml 
+  319  ls
+  320  helm dependency update 
+  321  ls
+  322  cd charts/
+  323  ls
+  324  cd ..
+  325  ls
+  326  cd ..
+  327  ls
+  328  helm install demo-chart/
+  329  helm list 
+  330  kubectl get pods 
+  331  kubectl get svc 
+  332  kubectl edit svc  knotted-boxer-demo-chart
+  333  kubectl get svc 
+  334  kubectl get secret
+  335  kubectl get secret knotted-boxer-mariadb -o yaml
+  336  echo'RFROS2IxVklaWQ==' | base64 --decode
+  337  echo 'RFROS2IxVklaWQ==' | base64 --decode
+  338  echo 'NXVnS055Q1ZHTQ==' | base64 --decode
+  339  helm list 
+  340  helm upgrade --set image.tag=v0.0.2,mariadb.password=DTNKb1VIZY knotted-boxer .
+  341  helm upgrade --set image.tag=v0.0.2,mariadb.password=DTNKb1VIZY knotted-boxer demo-chart/
+  342  helm list 
+  343  kubectl get pods 
+  344  helm list 
+  345  helm history knotted-boxer
+  346  helm rollback knotted-boxer 1
+  347  kubectl get pods 
+  348  helm list 
+  349  helm history knotted-boxer
+  350  helm delete knotted-boxer
+  351  ls
+  352  cd ../../
+  353  ls
+  354  cd ..
+  355  ls
+  356  history >> k8s-history_day4 
