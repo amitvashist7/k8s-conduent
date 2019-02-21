@@ -1,0 +1,19 @@
+1005  cd conduent/
+ 1006  ls
+ 1007  git clone https://github.com/amitvashist7/k8s-conduent.git
+ 1008  ls
+ 1009  cd k8s-conduent/
+ 1010  ls
+ 1011  cd K8S/
+ 1012  ls
+ 1013  cat gcloud/cronjob/cronjob.yaml
+ 1014  ls
+ 1015  kubectl create -f gcloud/cronjob/cronjob.yaml
+ 1016  kubectl get cronjob
+ 1017  kubectl describe cronjob hello
+ 1018  kubectl get cronjob
+ 1019  kubectl describe cronjob hello
+ 1020  kubectl get jobs
+ 1021  kubectl get pods
+ 1022  kubectl log hello-1550724000-62nkc
+ 1023  kubectl log hello-1550724060-m4h22
