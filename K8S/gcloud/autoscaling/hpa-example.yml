@@ -44,4 +44,4 @@ spec:
     name: hpa-example
   minReplicas: 1
   maxReplicas: 10
-  targetCPUUtilizationPercentage: 50
+  targetCPUUtilizationPercentage: 10
