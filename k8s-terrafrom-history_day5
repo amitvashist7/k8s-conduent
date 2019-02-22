@@ -1,0 +1,26 @@
+    1  git clone https://github.com/amitvashist7/k8s-conduent.git
+    2  ls
+    3  cd k8s-conduent/
+    4  ls
+    5  cd K8S/
+    6  ls 
+    7  cd setup/
+    8  ls
+    9  ./install-node.sh 
+   10  kubeadm join 10.142.0.44:6443 --token 4d5zvf.7dmn9awb6e2w1fgp --discovery-token-ca-cert-hash sha256:8debd905a4360a2326593050bbb4b91b1d63d8742e60a6a7ebda6ee656003235
+   11  ls
+   12  cd k8s-conduent/
+   13  ls
+   14  history >> k8s-terrafrom-history_day5 
+   15  git add . 
+   16  git commit -m "k8s-terrafrom-history"
+   17  git pull 
+   18  cd ..
+   19  ls
+   20  rm -rf k8s-conduent terraform_0.11.10_linux_amd64.zip 
+   21  ls
+   22  git clone https://github.com/amitvashist7/k8s-conduent.git
+   23  ls
+   24  cd k8s-conduent/
+   25  ls
+   26  history >> k8s-terrafrom-history_day5
