@@ -1,0 +1,121 @@
+    1  git clone https://github.com/amitvashist7/k8s-conduent.git
+    2  ls
+    3  cd k8s-conduent/
+    4  git pull 
+    5  ls
+    6  ip addr 
+    7  vim K8S/setup/install-kubernetes.sh 
+    8  ls
+    9  sh K8S/setup/install-kubernetes.sh
+   10  mkdir -p $HOME/.kube
+   11  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   12  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   13  kubectl get nodes 
+   14  ls
+   15  cd K8S/
+   16  l
+   17  cd users/
+   18  ls
+   19  cat README.md 
+   20  ls
+   21  cd 
+   22  ls
+   23  openssl genrsa -out amit.pem 2048
+   24  ls
+   25  cat amit.pem 
+   26  ls
+   27  openssl req -new -key amit.pem -out amit-csr.pem -subj "/CN=amit/O=myteam/"
+   28  ls
+   29  cat amit-csr.pem 
+   30  cat /etc/kubernetes/
+   31  cd  /etc/kubernetes/
+   32  ls
+   33  cd pki/
+   34  ls
+   35  cd 
+   36  ls
+   37  openssl x509 -req -in amit-csr.pem -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/kubernetes/pki/ca.key -CAcreateserial -out amit.crt -days 10000
+   38  ls
+   39  cat amit.crt 
+   40  cat amit.pem 
+   41  kubectl config view
+   42  kubectl config set-credentials amit --client-certificate=/root/amit.crt --client-key=/root/amit.pem
+   43  kubectl config get-context
+   44  kubectl config get-contexts
+   45  kubectl config set-contexts amit-context --cluster=kubernetes   --user=amit
+   46  kubectl config set-context amit-context --cluster=kubernetes   --user=amit
+   47  kubectl config get-contexts
+   48  kubectl get pods -n kube-sytem
+   49  kubectl get pods -n kube-system
+   50  kubectl config use-context amit-context
+   51  kubectl config get-contexts
+   52  kubectl get pods 
+   53  kubectl config use-context kubernetes-admin@kubernetes
+   54  kubectl get pods -n kube-system
+   55  ls
+   56  cd k8s-conduent/
+   57  ls
+   58  cd K8S/
+   59  ls
+   60  cd users/
+   61  ls
+   62  vim user.yaml 
+   63  kubectl create -f user.yaml 
+   64  ls
+   65  kubectl create -f ../deployment/helloworld.yml 
+   66  kubectl get pods 
+   67  kubectl config get-contexts
+   68  kubectl config use-context amit-context
+   69  kubectl get pod
+   70  kubectl get deployments 
+   71  kubectl delete pod helloworld-deployment-694b4c48b5-dzfvm
+   72  kubectl delete deployment helloworld-deployment
+   73  cd 
+   74  ls
+   75  cat .kube/config 
+   76  ls
+   77  kubectl config use-context kubernetes-admin@kubernetes
+   78  ls
+   79  cat k8s-conduent/K8S/users/user.yaml 
+   80  history 
+   81  ls
+   82  cd k8s-conduent/
+   83  ls
+   84  cd K8S/
+   85  ls
+   86  cd users/
+   87  ls
+   88  cat admin-user.yaml 
+   89  kubectl get crds
+   90  history 
+   91  kubectl config use-context amit-context
+   92  kubectl get crds
+   93  kubectl config use-context kubernetes-admin@kubernetes
+   94  ls
+   95  cat admin-user.yaml 
+   96  kubectl get roles
+   97  kubectl list roles
+   98  kubectl get clusterroles
+   99  ls
+  100  cat admin-user.yaml 
+  101  kubectl create -f admin-user.yaml 
+  102  kubectl config use-context amit-context
+  103  kubectl get crds
+  104  kubectl get pods 
+  105  kubectl get pods -n default
+  106  kubectl get ns 
+  107  kubectl get pods -n default
+  108  ls
+  109  kubectl create -f ../deployment/helloworld.yml 
+  110  kubectl get deployments 
+  111  kubectl delete deployments helloworld-deployment
+  112  kubectl create -f ../deployment/helloworld.yml 
+  113  kubectl get deployments 
+  114  kubectl get pods 
+  115  kubectl delete pods helloworld-deployment-694b4c48b5-swj4f
+  116  kubectl config get-contexts
+  117  cd ..
+  118  ls
+  119  cd ..
+  120  ls
+  121  history > k8s-history_day5
