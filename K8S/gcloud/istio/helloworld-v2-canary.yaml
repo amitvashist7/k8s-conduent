@@ -28,10 +28,10 @@ spec:
         subset: v1
         port:
           number: 8080
-      weight: 90
+      weight: 50
     - destination:
         host: hello.default.svc.cluster.local
         subset: v2
         port:
           number: 8080
-      weight: 10
+      weight: 50

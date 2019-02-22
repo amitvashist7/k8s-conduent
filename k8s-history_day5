@@ -1119,3 +1119,1003 @@
  1079  cd k8s-conduent/
  1080  ls
  1081  history >> k8s-history_day5
+   79  git add . 
+   80  git commit -m "CronJB"
+   81  git push origin master
+   82  kubectl get jobs
+   83  kubectl get cronjob
+   84  kubectl delete cronjob hello     
+   85  kubectl get cronjob
+   86  kubectl get jobs
+   87  kubectl get pods 
+   88  kubectl get pods
+   89  kubectl get pods -n kube-system
+   90  kubectl top
+   91  kubectl top node        
+   92  kubectl top pod
+   93  kubectl top pod -n kube-system
+   94  ls
+   95  cd K8S/
+   96  ls
+   97  cd gcloud/
+   98  ls
+   99  cd autoscaling/
+  100  ls
+  101  vim hpa-example.yml 
+  102  git add . 
+  103  ls
+  104  kubectl create -f hpa-example.yml 
+  105  kubectl get deployments
+  106  kubectl get pods 
+  107  kubectl get hpa
+  108  kubectl get svc 
+  109  kubectl get hpa
+  110  kubectl get pod
+  111  curl http://35.194.57.92:31001/
+  112  wget http://35.194.57.92:31001/
+  113  while true; do wget -q -O http://35.194.57.92:31001/; done
+  114  while true; do wget -q -O- http://35.194.57.92:31001/; done
+  115  kubectl get pod
+  116  kubectl get hpa
+  117  ls
+  118  kubectl get hpa
+  119  kubectl get hpa 
+  120  kubectl delete hpa  hpa-example-autoscaler
+  121  ls
+  122  kubectl delete -f hpa-example.yml 
+  123  ls
+  124  rm -rf index.html 
+  125  gls
+  126  cd ..
+  127  ls
+  128  cd ..
+  129  ls
+  130  cd ..
+  131  ls
+  132  history >> k8s-history_day4
+  133  git add . 
+  134  git commit -m "HPA Demo"
+  135  git push origin master
+  136  ls
+  137  cd K8S/gcloud/
+  138  ls
+  139  cat statefullset/cassandra.yaml 
+  140  kubectl get pv 
+  141  kubectl get pvc
+  142  ls
+  143  kubectl create -f statefullset/cassandra.yaml 
+  144  watch -n 1 kubectl get pods 
+  145  kubectl get pv 
+  146  kubectl get pvc
+  147  ls
+  148  kubectl get pods 
+  149  kubectl get rs
+  150  kubectl get statefullset
+  151  kubectl get statefulset
+  152  kubectl edit statefulset cassandra   
+  153  watch -n 1 kubectl get pods 
+  154  kubectl edit statefulset cassandra   
+  155  watch -n 1 kubectl get pods 
+  156  vim statefullset/cassandra.yaml 
+  157  ls
+  158  kubectl get pods 
+  159  kubectl exec -it cassandra-0 -- bash
+  160  kubectl get pods 
+  161  kubectl get pods -o wide 
+  162  kubectl delete pod cassandra-1
+  163  watch -n 1 kubectl get pods -o wide 
+  164  ls
+  165  kubectl dlete -f statefullset/cassandra.yaml 
+  166  kubectl delete -f statefullset/cassandra.yaml 
+  167  kubectl get pv 
+  168  ls
+  169  cd ../../
+  170  ls
+  171  history >> k8s-history_day4 
+  172  git add . 
+  173  git commit -m "StatefullSet History"
+  174  git push origin master
+  175  kubectl get pods -n kube-system
+  176  kubectl get depoyments -n kube-system 
+  177  kubectl get deployments -n kube-system 
+  178  kubectl get deamonset -n kube-system 
+  179  kubectl get daemonset -n kube-system 
+  180  kubectl describe daemonset fluentd-gcp-v3.2.0 -n kube-system 
+  181  ls
+  182  cd K8S/
+  183  ls
+  184  cd gcloud/
+  185  ls
+  186  cd resourcequotas/
+  187  ls
+  188  cat resourcequota.yml 
+  189  vim resourcequota.yml
+  190  ls
+  191  kubectl get ns 
+  192  kubectl create -f resourcequota.yml
+  193  kubectl get ns 
+  194  kubectl get resourcequota
+  195  kubectl get resourcequota -n myspace
+  196  ls
+  197  cat helloworld-with-quotas.yml 
+  198  kubectl create -f helloworld-with-quotas.yml 
+  199  kubectl get pod
+  200  kubectl get pod -n myspace
+  201  kubectl get deployments -n myspace
+  202  kubectl describe deployments helloworld-deployment -n myspace
+  203  kubectl get deployments -n myspace
+  204  kubectl describe deployments helloworld-deployment -n myspace
+  205  kubectl get rs -n myspace
+  206  kubectl describe rs helloworld-deployment-7bc6b64b45 -n myspace
+  207  ls
+  208  cat helloworld-no-quotas.yml 
+  209  kubectl apply -f helloworld-no-quotas.yml 
+  210  kubectl get pod -n myspace
+  211  kubectl get deployments -n myspace
+  212  ls
+  213  kubectl delete deployments helloworld-deploymen -n myspace
+  214  kubectl delete deployments helloworld-deployment -n myspace
+  215  kubectl get pod -n myspace
+  216  kubectl apply -f helloworld-no-quotas.yml 
+  217  kubectl get pod -n myspace
+  218  ls
+  219  cat helloworld-no-quotas.yml 
+  220  kubectl create -f helloworld-no-quotas.yml 
+  221  kubectl get pod -n myspace
+  222  kubectl get deployments -n myspace
+  223  ls
+  224  kubectl delete -f helloworld-no-quotas.yml 
+  225  cat defaults.yml 
+  226  kubectl create -f defaults.yml 
+  227  kubectl create  -f helloworld-no-quotas.yml 
+  228  kubectl get pod -n myspace
+  229  ls
+  230  cat defaults.yml 
+  231  ls
+  232  mv defaults.yml defaults-limits.yml 
+  233  ls
+  234  git add . 
+  235  git commit -m "NameSpace & Resource Quotas"
+  236  git push origin master
+  237  ls
+  238  kubectl delete -f defaults-limits.yml 
+  239  kubectl delete -f helloworld-no-quotas.yml 
+  240  kubectl delete -f helloworld-with-quotas.yml 
+  241  kubectl delete -f resourcequota.yml 
+  242  kubectl get ns 
+  243  ls
+  244  cd ..
+  245  ls
+  246  cd ..
+  247  ls
+  248  cd ..
+  249  ls
+  250  history >> k8s-history_day4
+  251  git add . 
+  252  git commit -m "hisory"
+  253  git push origin master
+  254  ls
+  255  cd K8S/
+  256  ls
+  257  cd gcloud/
+  258  ls
+  259  git pull
+  260  ls
+  261  cd helm/
+  262  ls
+  263  cat README.md 
+  264  wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+  265  tar -xzvf helm-v2.11.0-linux-amd64.tar.gz
+  266  sudo mv linux-amd64/helm /usr/local/bin/helm
+  267  ls
+  268  kubectl create -f helm-rbac.yaml
+  269  helm init --service-account tiller
+  270  ls
+  271  rm -rf helm-v2.11.0-linux-amd64.tar.gz linux-amd64/
+  272  ls
+  273  helm 
+  274  helm search 
+  275  helm search redis
+  276  helm install stable/redis
+  277  kubectl get pods 
+  278  kubectl get svc 
+  279  kubectl get pv
+  280  export REDIS_PASSWORD=$(kubectl get secret --namespace default austere-labradoodle-redis -o jsonpath="{.data.redis-password}" | base64 --decode)
+  281  kubectl run --namespace default austere-labradoodle-redis-client --rm --tty -i --restart='Never'     --env REDIS_PASSWORD=$REDIS_PASSWORD    --image docker.io/bitnami/redis:4.0.12 -- bash
+  282  helm list 
+  283  helm install stable/redis -n myredis
+  284  helm list 
+  285  kubectl get pods 
+  286  helm delete myredis   austere-labradoodle
+  287  ls
+  288  helm create myhelmchart
+  289  ls
+  290  cd myhelmchart/
+  291  ls
+  292  cat Chart.yaml 
+  293  ls
+  294  cat values.yaml 
+  295  ls
+  296  cd charts/
+  297  ls
+  298  cd ..
+  299  ls
+  300  cd templates/
+  301  ls
+  302  cd ..
+  303  ls
+  304  cd ..
+  305  helm install myhelmchart/
+  306  kubectl get pods 
+  307  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=myhelmchart,app.kubernetes.io/instance=garish-hedgehog" -o jsonpath="{.items[0].metadata.name}")
+  308  kubectl port-forward $POD_NAME 8080:80
+  309  bg
+  310  curl http://127.0.0.1:8080 
+  311  kubectl get svc 
+  312  kubectl edit svc garish-hedgehog-myhelmchart
+  313  kubectl get svc 
+  314  helm list 
+  315  helm delete garish-hedgehog
+  316  kubectl get svc 
+  317  ls
+  318  cd ../../
+  319  ls
+  320  cd ../
+  321  ls
+  322  history >> k8s-history_day4
+  323  git add . 
+  324  git commit -m "Helm"
+  325  git push origin master
+  326  ls
+  327  cd K8S/
+  328  ls
+  329  cd gcloud/
+  330  ls
+  331  cd helm/
+  332  ls
+  333  cd demo-chart/
+  334  ls
+  335  cat requirements.yaml 
+  336  cd ../../
+  337  ls
+  338  cd helm/
+  339  ls
+  340  cd demo-chart/
+  341  ls
+  342  cd ..
+  343  ls
+  344  cd demo-chart/
+  345  ls
+  346  cat requirements.
+  347  cat requirements.yaml 
+  348  cat values.yaml 
+  349  ls
+  350  cd ..
+  351  ls
+  352  cd demo-chart/
+  353  helm dependency update 
+  354  ls
+  355  cd charts/
+  356  ls
+  357  cd ..
+  358  ls
+  359  cd ..
+  360  ls
+  361  cd demo-chart/
+  362  ls
+  363  rm -rf charts
+  364  ls
+  365  cat requirements.yaml 
+  366  ls
+  367  helm dependency update 
+  368  ls
+  369  cd charts/
+  370  ls
+  371  cd ..
+  372  ls
+  373  cd ..
+  374  ls
+  375  helm install demo-chart/
+  376  helm list 
+  377  kubectl get pods 
+  378  kubectl get svc 
+  379  kubectl edit svc  knotted-boxer-demo-chart
+  380  kubectl get svc 
+  381  kubectl get secret
+  382  kubectl get secret knotted-boxer-mariadb -o yaml
+  383  echo'RFROS2IxVklaWQ==' | base64 --decode
+  384  echo 'RFROS2IxVklaWQ==' | base64 --decode
+  385  echo 'NXVnS055Q1ZHTQ==' | base64 --decode
+  386  helm list 
+  387  helm upgrade --set image.tag=v0.0.2,mariadb.password=DTNKb1VIZY knotted-boxer .
+  388  helm upgrade --set image.tag=v0.0.2,mariadb.password=DTNKb1VIZY knotted-boxer demo-chart/
+  389  helm list 
+  390  kubectl get pods 
+  391  helm list 
+  392  helm history knotted-boxer
+  393  helm rollback knotted-boxer 1
+  394  kubectl get pods 
+  395  helm list 
+  396  helm history knotted-boxer
+  397  helm delete knotted-boxer
+  398  ls
+  399  cd ../../
+  400  ls
+  401  cd ..
+  402  ls
+  403  history >> k8s-history_day4 
+  404  rm -rf K8S/gcloud/helm/demo-chart/charts
+  405  git add . 
+  406  git commit -m "Helm Rollback & Update"
+  407  git push origin master
+  408  ls
+  409  cd ..
+  410  s
+  411  ls
+  412  cd k8s-conduent/
+  413  ls
+  414  cd K8S/
+  415  ls
+  416  cd gcloud/
+  417  ls
+  418  cd kubeless/
+  419  ls
+  420  cat README.md 
+  421  wget https://github.com/kubeless/kubeless/releases/download/v1.0.0-alpha.8/kubeless_linux-amd64.zip
+  422  unzip kubeless_linux-amd64.zip
+  423  sudo mv bundles/kubeless_linux-amd64/kubeless /usr/local/bin
+  424  cat README.md 
+  425  kubeless function deploy hello --runtime python2.7                                --from-file python-example/example.py \
+  426  ls
+  427  rm -rf kubeless_linux-amd64.zip  bundles/
+  428  ls
+  429  kubeless function deploy hello --runtime python2.7                                --from-file python-example/example.py                                --handler test.hello
+  430  ls
+  431  kubectl create ns kubeless
+  432  kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.0-alpha.8/kubeless-v1.0.0-alpha.8.yaml
+  433  ls
+  434  kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.0-alpha.8/kubeless-v1.0.0-alpha.8.yaml
+  435  git pull 
+  436  cat README.md 
+  437  kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin  --user=$(gcloud config get-value core/account)
+  438  kubectl create -f https://github.com/kubeless/kubeless/releases/download/v1.0.0-alpha.8/kubeless-v1.0.0-alpha.8.yaml
+  439  kubeless function deploy hello --runtime python2.7                                --from-file python-example/example.py                                --handler test.hello
+  440  kubeless function ls hello
+  441  kubectl get pods 
+  442  kubectl get pods -n kubeless
+  443  kubectl delete pods kubeless-controller-manager-66868fb689-dkwz9 -n kubeless
+  444  kubectl get pods -n kubeless
+  445  kubeless function ls hello
+  446  kubectl get svc 
+  447  curl 10.31.254.128:8080
+  448  kubeless function ls 
+  449  kubeless function call hello   --date "Some data"
+  450  kubeless function call hello   --data "Some data"
+  451  ls
+  452  cat python-example/example.py 
+  453  ls
+  454  kubectl get pods 
+  455  kubectl log hello-64fd759559-76nmb
+  456  kubeless function call hello   --data "My Name is Amit Vashist"
+  457  ls
+  458  cat node-example/
+  459  ls
+  460  cat README.md 
+  461  kubeless function deploy myfunction --runtime nodejs6                                 --dependencies node-example/package.json                                 --handler test.myfunction                                 --from-file node-example/example.js
+  462  kubeless function ls 
+  463  kubectl get pods 
+  464  kubeless function ls 
+  465  kubeless function call myfunction --data 'This is some data'
+  466  kubeless function ls 
+  467  kubectl get pods 
+  468  ls
+  469  cat node-example/example.js 
+  470  ls
+  471  kubectl get pods 
+  472  kubectl log myfunction-854fdf8c8b-skxkf
+  473  kubeless function call myfunction --data 'data'
+  474  kubectl get svc 
+  475  kubectl edit svc myfunction   
+  476  kubectl get svc 
+  477  ls
+  478  export RELEASE=$(curl -s https://api.github.com/repos/kubeless/kafka-trigger/releases/latest | grep tag_name | cut -d '"' -f 4)
+  479  kubectl create -f https://github.com/kubeless/kafka-trigger/releases/download/$RELEASE/kafka-zookeeper-$RELEASE.yaml
+  480  set | grep -i RELEASE
+  481  wegt  https://github.com/kubeless/kafka-trigger/releases/download/$RELEASE/kafka-zookeeper-$RELEASE.yaml
+  482  wget  https://github.com/kubeless/kafka-trigger/releases/download/$RELEASE/kafka-zookeeper-$RELEASE.yaml
+  483  ls
+  484  cat kafka-zookeeper-v1.0.1.yaml 
+  485  kubectl function ls 
+  486  kubeless function ls 
+  487  kubeless function deploy uppercase --runtime nodejs6                                 --dependencies node-example/package.json                                 --handler test.uppercase                                 --from-file node-example/uppercase.js
+  488  kubectl function ls 
+  489  kubeless function ls 
+  490  kubeless function call uppercase   --data 'welcome to k8s kubless kafa demo'
+  491  kubeless function call uppercase   --data 'amit vashist'
+  492  kubeless trigger kafka create test --function-selector created-by=kubeless,function=uppercase --trigger-topic uppercase
+  493  kubeless topic publish --topic uppercase --data "this message will be converted to uppercase"
+  494  kubeless topic publish --topic uppercase --data "test 5"
+  495  kubectl get pods 
+  496  kubectl log uppercase-9647df75b-sw95n
+  497  kubectl get function
+  498  kubectl delete function --all
+  499  kubectl get pods 
+  500  ls
+  501  cd ../../
+  502  ls
+  503  cd ..
+  504  ls
+  505  history >> k8s-history_day4
+  506  git add . 
+  507  git commit -m "Kubeless"
+  508  git push origin master
+  509  gcloud container clusters get-credentials k8s-twistllock --zone us-central1-a --project sapient-office-218912
+  510  kubectl get pods 
+  511  kubectl get nodes
+  512  ls
+  513  rm -rf istio-1.0.6/
+  514  ls
+  515  git clone https://github.com/twistlock/sample-code.git
+  516  ls
+  517  cd sample-code/
+  518  ls
+  519  cd helm/
+  520  ls
+  521  cd charts/
+  522  ls
+  523  cat README.md 
+  524  helm install twistlock-console -n twistlock-console --namespace=twistlock
+  525  ls
+  526  cd twistlock-console/
+  527  ls
+  528  cat valuesTemplate.yaml 
+  529  ls
+  530  cd ..
+  531  ls
+  532  cd ..
+  533  ls
+  534  cd ..
+  535  ls
+  536  cd ..
+  537  ls
+  538  cd conduent/
+  539  ls
+  540  cd k8s-conduent/
+  541  ls
+  542  cd ..
+  543  ls
+  544  cd ..
+  545  ls
+  546  cd helm/
+  547  ls
+  548  cat README.md 
+  549  wget https://storage.googleapis.com/kubernetes-helm/helm-v2.11.0-linux-amd64.tar.gz
+  550  tar -xzvf helm-v2.11.0-linux-amd64.tar.gz
+  551  sudo mv linux-amd64/helm /usr/local/bin/helm
+  552  ls
+  553  kubectl create -f helm-rbac.yaml
+  554  helm init --service-account tiller
+  555  ls
+  556  cd ../
+  557  ls
+  558  cd sample-code/
+  559  ls
+  560  cd kubernetes/
+  561  ls
+  562  helm serach twistlock
+  563  helm search twistlock
+  564  helm search redis
+  565  ls
+  566  cd ../helm/
+  567  ls
+  568  cd charts/
+  569  ls
+  570  cat README.md 
+  571  helm install twistlock-console -n twistlock-console --namespace=twistlock
+  572  ls
+  573  cd twistlock-console/
+  574  ls
+  575  cp -rf valuesTemplate.yaml values.yaml
+  576  vim values
+  577  vim values.yaml 
+  578  helm install twistlock-console -n twistlock-console --namespace=twistlock
+  579  helm repo update
+  580  ls
+  581  cd ..
+  582  helm install twistlock-console -n twistlock-console --namespace=twistlock
+  583  helm ls --all twistlock-console
+  584  kubectl get pods 
+  585  helm list 
+  586  kubectl get ns 
+  587  kubectl get ns -n twistlock     
+  588  kubectl pod  ns -n twistlock     
+  589  kubectl get pod  ns -n twistlock     
+  590  kubectl get pod  -n twistlock     
+  591  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912
+  592  ls
+  593  cd kubernetes-project/
+  594  ls
+  595  cd users/
+  596  ls
+  597  cat README.md 
+  598  ls
+  599  cat user.yaml 
+  600  ls
+  601  cat admin-user.yaml 
+  602  kubectl get ClusterRoleBinding
+  603  kubectl describe  ClusterRoleBinding system:node
+  604  ls
+  605  kubectl get pds 
+  606  kubectl get sa
+  607  kubectl create sa alice
+  608  kubectl get sa
+  609  kubectl get sa alice -o json | jq -r .secrets[].name
+  610  secret=$(kubectl get sa alice -o json | jq -r .secrets[].name)
+  611  kubectl get secret $secret -o json | jq -r '.data["ca.crt"]' | base64 -D > ca.crt
+  612  ls
+  613  cat ca.crt 
+  614  kubectl get secret $secret -o json | jq -r '.data["ca.crt"]' | base64 --decode > ca.crt
+  615  cat ca.crt 
+  616  kubectl get secret $secret -o json | jq -r '.data["token"]' | base64 --decode > alice_token
+  617  cat alice_token 
+  618  ls
+  619  kubectl config current-context
+  620  kubectl config get-contexts $(kubectl config current-context) | awk '{print $3}
+  621  kubectl config get-contexts $(kubectl config current-context) | awk '{print $3}'
+  622  kubectl config get-contexts
+  623  kubectl config get-contexts $(kubectl config current-context) | awk '{print $3}'
+  624  kubectl config view -o jsonpath="{.clusters[?(@.name == \"$name\")].cluster.server}"
+  625  kubectl config view 
+  626  history 
+  627  kubectl create namespace office
+  628  kubectl get ns 
+  629  kubectl create sa employee
+  630  kubectl get sa employee -o json | jq -r .secrets[].name
+  631  kubectl config view -o jsonpath="{.clusters[?(@.name == \"$name\")].cluster.server}"
+  632  kubectl config get-contexts $c | awk '{print $3}' | tail -n 1
+  633  kubectl config current-context
+  634  secret=$(kubectl get sa employee -o json | jq -r .secrets[].name)
+  635  user_token=$(kubectl get secret $secret -o json | jq -r '.data["token"]' | base64 --decode)
+  636  kubectl config set-credentials employee --token=$user_token
+  637  kubectl config get-credentials employee 
+  638  kubectl config get-contexts $(kubectl config current-context) | awk '{print $3}'
+  639  echo $name
+  640  c=`kubectl config current-context`
+  641  name=`kubectl config get-contexts $c | awk '{print $3}' | tail -n 1`
+  642  echo $name
+  643  kubectl config set-context employee-context --cluster=$name --namespace=office --user=employee
+  644  kubectl --context=employee-context get pods
+  645  ls
+  646  vi role-deployment-manager.yaml
+  647  kubectl create -f role-deployment-manager.yaml
+  648  kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin  --user=$(gcloud config get-value core/account)
+  649  kubectl create -f role-deployment-manager.yaml
+  650  cat role-deployment-manager.yaml 
+  651  vim 
+  652  vim rolebinding-deployment-manager.yaml
+  653  kubectl create -f rolebinding-deployment-manager.yaml
+  654  cat rolebinding-deployment-manager.yaml
+  655  kubectl --context=employee-context run --image busybox mybusybox
+  656  kubectl --context=employee-context run --image busybox mybusyboxls
+  657  kubectl create -f role-deployment-manager.yaml
+  658  kubectl create -f rolebinding-deployment-manager.yaml
+  659  kubectl --context=employee-context run --image busybox mybusybox
+  660  vim rolebinding-deployment-manager.yaml 
+  661  kubectl apply -f rolebinding-deployment-manager.yaml
+  662  kubectl --context=employee-context run --image busybox mybusybox
+  663  vim rolebinding-deployment-manager-2.yaml 
+  664  kubectl apply -f rolebinding-deployment-manager-2.yaml
+  665  kubectl --context=employee-context run --image busybox mybusybox
+  666  ls
+  667  cat admin-user.yaml 
+  668  kubectl config use-context employee-context
+  669  ls
+  670  kubectl get pods 
+  671  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912
+  672  ls
+  673  git clone https://github.com/coreos/clair
+  674  cd clair/contrib/helm
+  675  cp clair/values.yaml ~/my_custom_values.yaml
+  676  vi ~/my_custom_values.yaml 
+  677  helm dependency update clair 
+  678  helm install clair -f ~/my_custom_values.yaml
+  679  ls
+  680  cd 
+  681  ls
+  682  cd helm/
+  683  ls
+  684  kubectl create -f helm-rbac.yaml
+  685  helm init --service-account tiller
+  686  cd ../..
+  687  ls
+  688  cd 
+  689  ls
+  690  cd ..
+  691  ls
+  692  cd -
+  693  ls
+  694  pwd
+  695  ls
+  696  cd clair/contrib/helm 
+  697  helm init --service-account tiller
+  698  helm install clair -f ~/my_custom_values.yaml
+  699  kubectl get pods 
+  700  kubectl get svc 
+  701  kubectl edit svc volted-jaguar-clair
+  702  kubectl get svc 
+  703  kubectl get pods 
+  704  kubectl get svc 
+  705  kubectl get pods 
+  706  kubectl log volted-jaguar-clair-858dfc76b8-m668r
+  707  ls
+  708  wget https://github.com/optiopay/klar/releases/download/v2.4.0/klar-2.4.0-linux-amd64
+  709  ls
+  710  CLAIR_OUTPUT=High CLAIR_ADDR=http://35.193.4.164:6061/ klar-1.4.1-linux-amd64 romainregistry1.azurecr.io/samples/nginx
+  711  ls
+  712  file klar-2.4.0-linux-amd64 
+  713  ls
+  714  cat klar-2.4.0-linux-amd64 
+  715  CLAIR_OUTPUT=High CLAIR_ADDR=http://35.193.4.164:6061/./klar-1.4.1-linux-amd64 romainregistry1.azurecr.io/samples/nginx
+  716  CLAIR_OUTPUT=High CLAIR_ADDR=http://35.193.4.164:6061/ ./klar-1.4.1-linux-amd64 romainregistry1.azurecr.io/samples/nginx
+  717  klar-1.4.1-linux-amd64 romainregistry1.azurecr.io/samples/nginx
+  718  ./klar-1.4.1-linux-amd64 romainregistry1.azurecr.io/samples/nginx
+  719  ls
+  720  chmod +x klar-2.4.0-linux-amd64 
+  721  ./klar-2.4.0-linux-amd64 
+  722  ./klar-1.4.1-linux-amd64 romainregistry1.azurecr.io/samples/nginx
+  723  docker images 
+  724  docker pull ubuntu
+  725  ./klar-1.4.1-linux-amd64 library/ubuntu
+  726  ls
+  727  ./klar-2.4.0-linux-amd64 
+  728  ./klar-2.4.0-linux-amd64 ubuntu
+  729  ./klar-2.4.0-linux-amd64 ubuntu CLAIR_OUTPUT=High CLAIR_ADDR=http://35.193.4.164:6061/
+  730  ./klar-2.4.0-linux-amd64 --help
+  731  ./klar-2.4.0-linux-amd64 http://35.193.4.164:6061
+  732  ./klar-2.4.0-linux-amd64 ubuntu http://35.193.4.164:6061
+  733  ./klar-2.4.0-linux-amd64 high http://35.193.4.164:6061 ubuntu
+  734  ./klar-2.4.0-linux-amd64 high http://35.193.4.164:6061
+  735  ./klar-2.4.0-linux-amd64 ubuntu http://35.193.4.164:6061
+  736  ./klar-2.4.0-linux-amd64 ubuntu 
+  737  docker pull ubuntu
+  738  ./klar-2.4.0-linux-amd64 ubuntu 
+  739  ./klar-2.4.0-linux-amd64 ubuntu http://35.193.4.164:6061
+  740  ls
+  741  cd ..
+  742  ls
+  743  cd grafana/
+  744  ls
+  745  cd ..
+  746  ls
+  747  cd - 
+  748  ls
+  749  cd ..
+  750  ls
+  751  cd helm/
+  752  ls
+  753  cd ..
+  754  ls
+  755  cd grafana/
+  756  ls
+  757  kubectl get ns 
+  758  kubectl get -o pods 
+  759  kubectl get pods -n kube-system
+  760  ls
+  761  cd 
+  762  ls
+  763  git clone https://github.com/leahnp/clair-klar-kubernetes-demo.git
+  764  ls
+  765  cd clair-klar-kubernetes-demo/
+  766  ls
+  767  cat config.yaml 
+  768  ls
+  769  kubectl create secret generic clairsecret --from-file=./config.yaml
+  770  kubectl get secret
+  771  kubectl create -f clair-kubernetes.yaml
+  772  kubectl get pods 
+  773  helm list 
+  774  helm delete volted-jaguar
+  775  helm list 
+  776  ls
+  777  kubectl get pods 
+  778  kubectl log clair-tg6n8
+  779  kubectl get svc 
+  780  kubectl edit svc clairsvc     
+  781  kubectl get svc 
+  782  ls
+  783  vim klar.yaml 
+  784  kubectl get svc 
+  785  ls
+  786  vim klar.yaml 
+  787  kubectl create -f klar.yaml
+  788  kubectl get pod
+  789  kubectl log klar-7mkxg
+  790  vim klar.yaml 
+  791  kubectl apply -f klar.yaml
+  792  kubectl delete job klar
+  793  ls
+  794  kubectl create -f klar.yaml
+  795  kubectl get pod 
+  796  kubectl log klar-mhfjl
+  797  kubectl get pod 
+  798  kubectl delete job klar
+  799  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912
+  800  ls
+  801  mkdir test
+  802  cd test/
+  803  ls
+  804  git clone https://github.com/dockersamples/example-voting-app.git
+  805  ls
+  806  kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin  --user=$(gcloud config get-value core/account)
+  807  ls
+  808  cd example-voting-app/
+  809  ls
+  810  cd k8s-specifications/
+  811  ls
+  812  cd ..
+  813  kubectl create -f k8s-specifications/
+  814  kubectl create ns vote
+  815  kubectl create -f k8s-specifications/
+  816  kubectl get pods -n vote
+  817  kubectl create -f daemonset.yaml
+  818  vim daemonset.yaml
+  819  kubectl create -f daemonset.yaml
+  820  vim daemonset.yaml
+  821  kubectl create -f daemonset.yaml
+  822  vim daemonset.yaml
+  823  kubectl create -f daemonset.yaml
+  824  vim daemonset.yaml
+  825  vim daemonset-1.yaml 
+  826  kubectl create -f daemonset-1.yaml
+  827  kubectl get pods
+  828  kubectl get pods -n vote 
+  829  kubectl get pods -n kube-system
+  830  kubectl describe  pods fluentd-gcp-v3.2.0-5vbp6 -n kube-system
+  831  kubectl get pods -n kube-system
+  832  kubectl get svc -n kube-system
+  833  ls
+  834  cd ..
+  835  ls
+  836  cd ..
+  837  ls
+  838  cd ..
+  839  ls
+  840  cd -
+  841  ls
+  842  cd helm/
+  843  ls
+  844  cat README.md 
+  845  kubectl create -f helm-rbac.yaml
+  846  helm init --service-account tiller
+  847  ls
+  848  rm -rf linux-amd64/
+  849  tar -xzvf helm-v2.11.0-linux-amd64.tar.gz
+  850  sudo mv linux-amd64/helm /usr/local/bin/helm
+  851  helm init --service-account tiller
+  852  helm install --name anchore-stack stable/anchore-engine
+  853  kubectl get pods
+  854  pip install anchorecli
+  855  sudo pip install anchorecli
+  856  ANCHORE_CLI_USER=admin
+  857  ANCHORE_CLI_PASS=$(kubectl get secret --namespace default anchore-stack-anchore-engine -o jsonpath="{.data.ANCHORE_ADMIN_PASSWORD}" | base64 --decode; echo)
+  858  ANCHORE_CLI_URL=http://anchore-stack-anchore-engine-api.default.svc.cluster.local:8228/v1/
+  859  kubectl get pods
+  860  kubectl run -i --tty anchore-cli --restart=Always --image anchore/engine-cli --env ANCHORE_CLI_USER=admin --env ANCHORE_CLI_PASS=${ANCHORE_CLI_PASS} --env ANCHORE_CLI_URL=http://anchore-stack-anchore-engine-api.default.svc.cluster.local:8228/v1/
+  861  kubectl config get-contexts
+  862  kubectl get pods 
+  863  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912
+  864  ls
+  865  cat .config/configstore/update-notifier-npm.json 
+  866  cat .config/gcloud/docker_credential_gcr_config.json 
+  867  ls
+  868  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912
+  869  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912 -vvv
+  870  gcloud container clusters get-credentials standard-cluster-1 --zone us-central1-a --project sapient-office-218912 
+  871  ls
+  872  kubectl get pods 
+  873  ls
+  874  cd conduent/
+  875  ls
+  876  gcloud container clusters get-credentials k8s-demo --zone us-central1-a --project sapient-office-218912
+  877  kubectl get nodes 
+  878  ls
+  879  cd k8s-conduent/
+  880  ls
+  881  cd K8S/
+  882  ls
+  883  cd gcloud/istio/
+  884  ls
+  885  cd 
+  886  ls
+  887  cd conduent/
+  888  ls
+  889  cd k8s-conduent/
+  890  ls
+  891  git pull 
+  892  ls
+  893  wget https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz
+  894  ls
+  895  tar -xzvf istio-1.0.2-linux.tar.gz
+  896  ls
+  897  cd istio-1.0.2
+  898  ls
+  899  cd bin/
+  900  pwd
+  901  echo 'export PATH="$PATH:/home/amitvashist7/conduent/k8s-conduent/istio-1.0.2/bin"' >> ~/.profile
+  902  vim ~/.profile 
+  903  ls
+  904  socu~/.profile
+  905  source ~/.profile
+  906  ls
+  907  exit
+  908  kubectl get nodes 
+  909  cd conduent/k8s-conduent/K8S/
+  910  ls
+  911  cd gcloud/istio/
+  912  ls
+  913  cd ..
+  914  ls
+  915  cd istio/
+  916  ls
+  917  cd ..
+  918  ls
+  919  cd ls
+  920  ls
+  921  cd ..
+  922  ls
+  923  cd ..
+  924  ls
+  925  pwd
+  926  kubectl apply -f istio-1.0.2/install/kubernetes/helm/istio/templates/crds.yaml
+  927  kubectl apply -f istio-1.0.2/install/kubernetes/istio-demo.yaml
+  928  kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user=$(gcloud config get-value core/account)
+  929  kubectl apply -f istio-1.0.2/install/kubernetes/istio-demo.yaml
+  930  kubectl get ns 
+  931  kubectl get pods -n istio-system
+  932  kubectl get ns -L istio-system
+  933  kubectl label ns default  istio-injection=enabled
+  934  kubectl get ns -L istio-system
+  935  kubectl label namespace default  istio-injection=enabled
+  936  kubectl get ns -L istio-system
+  937  kubectl get ns -L istio-injection
+  938  ls
+  939  kubectl get pods -n istio-system
+  940  ls
+  941  cd K8S/gcloud/istio/
+  942  ls
+  943  cat helloworld.yaml 
+  944  vim helloworld.yaml
+  945  ls
+  946  kubectl apply -f <(istioctl kube-inject -f helloworld.yaml)
+  947  kubectl get pods 
+  948  kubectl desribe pod hello-94c796694-ckddw
+  949  kubectl describe pod hello-94c796694-ckddw
+  950  kubectl get pods 
+  951  cat helloworld-gw.yaml 
+  952  kubectl get pods -n istio-system
+  953  kubectl get svc  -n istio-system
+  954  ls
+  955  cat helloworld-gw.yaml 
+  956  kubectl create -f helloworld-gw.yaml 
+  957  kubectl get svc  -n istio-system
+  958  ls
+  959  history >> ../../../k8s-history_day5 
+  960  ls
+  961  cd ..
+  962  ls
+  963  cd ..
+  964  ls
+  965  git add . 
+  966  git commit -m "Istio hello world"
+  967  git add . 
+  968  git commit -m "Istio hello world"
+  969  git pull
+  970  git add . 
+  971  git commit -m "Istio hello world"
+  972  git push origin master
+  973  git push origin master --force 
+  974  ls
+  975  git add . 
+  976  git commit -m "Istio hello world"
+  977  vim ~/.profile 
+  978  ls
+  979  cd ..
+  980  ls
+  981  cd ..
+  982  ls
+  983  rm -rf k8s-conduent
+  984  git clone https://github.com/amitvashist7/k8s-conduent.git
+  985  ls
+  986  cd k8s-conduent/
+  987  ls
+  988  history >> k8s-history_day5
+  989  git add . 
+  990  git commit -m "Istio Hello World"
+  991  git push origin master
+  992  ls
+  993  cd K8S/gcloud/istio/
+  994  ls
+  995  cat helloworld-v2.yaml
+  996  ls
+  997  kubectl apply -f <(istioctl kube-inject -f helloworld-v2.yaml)
+  998  source ~/.profile 
+  999  eixt
+ 1000  exit
+ 1001  ls
+ 1002  cd conduent/k8s-conduent/
+ 1003  ls
+ 1004  cd K8S/
+ 1005  ls
+ 1006  cat ~/.profile 
+ 1007  ls
+ 1008  cd ..
+ 1009  ls
+ 1010  cd ..
+ 1011  ls
+ 1012  cat ~/.profile 
+ 1013  ls
+ 1014  cd k8s-conduent/
+ 1015  ls
+ 1016  cd ..
+ 1017  ls
+ 1018  wget https://github.com/istio/istio/releases/download/1.0.2/istio-1.0.2-linux.tar.gz
+ 1019  tar -xzvf istio-1.0.2-linux.tar.gz
+ 1020  ls
+ 1021  pwd
+ 1022  cd istio-1.0.2/bin/
+ 1023  pwd
+ 1024  vi  ~/.profile 
+ 1025  ls
+ 1026  cd ../../
+ 1027  ls
+ 1028  cd k8s-conduent/K8S/gcloud/istio/
+ 1029  ls
+ 1030  kubectl apply -f <(istioctl kube-inject -f helloworld-v2.yaml)
+ 1031  ls
+ 1032  cat   ~/.profile 
+ 1033  export PATH="$PATH:/home/amitvashist7/conduent/istio-1.0.2/bin"
+ 1034  kubectl apply -f <(istioctl kube-inject -f helloworld-v2.yaml)
+ 1035  kubectl get pods 
+ 1036  kubectl get svc
+ 1037  for ((i=1;i<10;i++)); do curl http://35.222.216.187/hello ; done 
+ 1038  ls
+ 1039  cat helloworld-v2-routing.yaml 
+ 1040  kubectl apply -f helloworld-v2-routing.yaml 
+ 1041  for ((i=1;i<10;i++)); do curl http://35.222.216.187/hello ; done 
+ 1042  curl http://35.222.216.187/hello
+ 1043  curl http://35.222.216.187
+ 1044  curl http://35.222.216.187 -vvv
+ 1045  curl http://35.222.216.187  -H "host: hello.example.com"
+ 1046  for ((i=1;i<10;i++)); do curl curl http://35.222.216.187  -H "host: hello.example.com"; done 
+ 1047  for ((i=1;i<10;i++)); do curl http://35.222.216.187  -H "host: hello.example.com"; done 
+ 1048  for ((i=1;i<10;i++)); do curl http://35.222.216.187  -H "host: hello.example.com" -H "end-user: amit"; done 
+ 1049  ls
+ 1050  cat helloworld-v2-canary.yaml 
+ 1051  kubectl apply -f helloworld-v2-canary.yaml 
+ 1052  for ((i=1;i<10;i++)); do curl http://35.222.216.187  -H "host: hello.example.com" -H "end-user: amit"; done 
+ 1053  vim helloworld-v2-canary.yaml 
+ 1054  kubectl apply -f helloworld-v2-canary.yaml 
+ 1055  for ((i=1;i<10;i++)); do curl http://35.222.216.187  -H "host: hello.example.com" -H "end-user: amit"; done 
+ 1056  for ((i=1;i<11;i++)); do curl http://35.222.216.187  -H "host: hello.example.com" -H "end-user: amit"; done 
+ 1057  ls
+ 1058  vim helloworld-v3.yaml 
+ 1059  kubectl apply -f helloworld-v3.yaml 
+ 1060  vim helloworld-v3.yaml 
+ 1061  kubectl get pods 
+ 1062  kubectl get svc 
+ 1063  for ((i=1;i<11;i++)); do curl http://35.222.216.187  -H "host: hello-v3.example.com"; done 
+ 1064  for ((i=1;i<11;i++)); do curl http://35.222.216.187/  -H "host: hello-v3.example.com"; done 
+ 1065  time for ((i=1;i<11;i++)); do curl http://35.222.216.187/  -H "host: hello-v3.example.com"; done 
+ 1066  ls
+ 1067  kubectl apply -f ../../../../../kubernetes-project/istio/helloworld-v3.yaml 
+ 1068  for ((i=1;i<11;i++)); do curl http://35.222.216.187/  -H "host: hello-v3.example.com"; done 
+ 1069  for ((i=1;i<11;i++)); do time curl http://35.222.216.187/  H "host: hello-v3.example.com"; done 
+ 1070  for ((i=1;i<11;i++)); do time curl http://35.222.216.187/  -H "host: hello-v3.example.com"; done 
+ 1071  kubectl delete deamonsets,replicasets,services,deployments,pods,rc,virtualservice,destinationrules --all
+ 1072  kubectl delete daemonsets,replicasets,services,deployments,pods,rc,virtualservice,destinationrules --all
+ 1073  ls
+ 1074  cd ..
+ 1075  ls
+ 1076  cd ../../
+ 1077  ls
+ 1078  history >> k8s-history_day5
